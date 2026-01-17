@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSW 운전면허 문제은행</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>NSW Driver Knowledge Test</h1>
+      <p class="subtitle">운전면허 필기시험 문제은행</p>
+    </header>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+      <div class="card">
+        <h2>시험 모드 선택</h2>
+        <div class="mode-selection">
+          <button id="practice-mode" class="btn btn-primary">
+            <span class="btn-icon">📚</span>
+            <span class="btn-text">연습 모드</span>
+            <span class="btn-desc">카테고리별 학습</span>
+          </button>
+          <button id="test-mode" class="btn btn-primary">
+            <span class="btn-icon">📝</span>
+            <span class="btn-text">시험 모드</span>
+            <span class="btn-desc">45문제 랜덤 출제</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" id="category-selection" style="display: none;">
+        <h2>카테고리 선택</h2>
+        <div id="category-buttons" class="category-grid"></div>
+        <button id="start-practice" class="btn btn-success" disabled>학습 시작</button>
+      </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+      <div class="quiz-header">
+        <div class="progress-info">
+          <span id="question-counter">1 / 10</span>
+          <span id="score-display">점수: 0</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="card question-card">
+        <div class="question-meta">
+          <span id="question-id" class="question-id"></span>
+          <span id="question-category" class="question-category"></span>
+        </div>
+        <h3 id="question-text" class="question-text"></h3>
+        <div id="options-container" class="options-container"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button id="next-btn" class="btn btn-primary" disabled>다음 문제</button>
+        <button id="quit-btn" class="btn btn-secondary">나가기</button>
+      </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen">
+      <div class="card result-card">
+        <h2>시험 결과</h2>
+        <div class="result-score">
+          <span id="final-score" class="score-number">0</span>
+          <span class="score-total">/ <span id="total-questions">45</span></span>
+        </div>
+        <div id="result-message" class="result-message"></div>
+        <div class="result-stats">
+          <div class="stat">
+            <span class="stat-label">정답률</span>
+            <span id="accuracy" class="stat-value">0%</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">합격 기준</span>
+            <span class="stat-value">75%</span>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button id="review-btn" class="btn btn-secondary">오답 확인</button>
+          <button id="restart-btn" class="btn btn-primary">다시 시작</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Screen -->
+    <div id="review-screen" class="screen">
+      <div class="card">
+        <h2>오답 노트</h2>
+        <div id="review-container"></div>
+        <button id="back-to-result" class="btn btn-primary">결과로 돌아가기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
